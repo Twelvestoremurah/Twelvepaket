@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twelve paket</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{overflow-x:hidden}
+        body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg,#1dbde9 0%,#ffffff 100%);
+    min-height:100vh;
+    padding:28px 0;
+    color:#222;
+}
+        .container{max-width:1100px;margin:0 auto;padding:0 20px}
+        .header{background:url(gambar/gelembung.jpg);padding:18px;border-radius:12px;display:flex;gap:14px;align-items:center;margin-bottom:22px}
+        .logo{font-size:20px;font-weight:700;color:#000000;letter-spacing:1px}
+        .tagline{font-size:12px;color:#131010;margin-left:6px}
+        .card{background:url(gambar/Himmel.webp) center/cover no-repeat, linear-gradient(135deg,#000000 0%,#4b4fa2 100%);padding:24px;border-radius:12px;box-shadow:0 8px 30px rgba(102,126,234,0.25);color:#fff}
+        h1{font-size:22px;color:#111;margin-bottom:30px}
+        .note{font-size:13px;color:#000000;margin-top:5px}
+
+        label{display:block;font-size:14px;margin-bottom:8px;color:#000000}
+        select,input[type=text],textarea{width:100%;padding:12px;border:1px solid #eef2ff;border-radius:12px;font-size:15px;background:#fbfdff}
+        .form-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+        .col{flex:1;min-width:220px}
+
+        /* Radio payment styled like buttons */
+        .payment-options{display:flex;gap:10px;margin-top:8px}
+        .payment-options input{display:none}
+        .payment-options label{flex:1;padding:12px;border-radius:12px;text-align:center;border:1px solid rgba(102,126,234,0.12);background:linear-gradient(180deg,#ffffff,#f7f9ff);cursor:pointer;font-weight:600;color:#334155}
+        .payment-options input:checked+label{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border-color:transparent;box-shadow:0 8px 30px rgba(102,126,234,0.25);}
+
+        .actions{display:flex;justify-content:flex-end;margin-top:16px}
+        .btn{padding:12px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+        .btn.primary{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff}
+        .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:#222}
+
+        textarea{min-height:110px;resize:vertical}
+
+        @media (max-width:720px){.form-row{flex-direction:column}.header{flex-direction:column;align-items:flex-start}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">📱 TWELVE PAKET</div>
+                <div class="tagline">Kuota Internet Termurah</div>
+            </div>
+            <div style="margin-left:auto" class="note">INFO PAKET LAIN MENYUSUL,ADMIN CIBUK 😭</div>
+        </div>
+
+        <div class="card">
+            <h1>Twelve Paket — Pilih Paketmu</h1>
+            <div class="note">Isi data pembeli lalu klik "Kirim ke WhatsApp".</div>
+            <form id="orderForm" action="https://wa.me/6283189187818" method="get">
+                <div style="margin-top:14px">
+                   
+                    <label for="packageSelect">1. Mau beli paket yang mana?</label>
+                    <select id="packageSelect" name="package" required>
+                        <option value="">-- Pilih Paket --</option>
+                        <optgroup label="XL">
+                            <option value="XL 30 GB 30 Hari-Rp 35.000.">XL 30 GB 30 Hari-Rp 35.000.</option>                   
+                        </optgroup>
+                        <optgroup label="Axis">
+                            <option value="Axis 1 Gb 30 hari + masa aktif sebulan-Rp.20.000. ">Axis 1 Gb 30 hari + masa aktif sebulan-Rp.20.000. </option>
+                            <option value="Axis 2 Gb 30 hari + masa aktif sebulan-Rp.25.000. ">Axis 2 Gb 30 hari + masa aktif sebulan-Rp.25.000. </option>              
+                        </optgroup>
+                    </select>
+                    
+                    
+                </div>
+                
+
+                <div class="form-row">
+                    <div class="col">
+                        <label for="location">2. Lokasi (isi sendiri)</label>
+                        <input id="location" name="lokasi" type="text" placeholder="Tulis Lokasi / Daerah kalian" required />
+                    </div>
+                    <div class="col">
+                        <label>3. Metode pembayaran</label>
+                        <div class="payment-options">
+                            <input type="radio" id="pay1" name="pembayaran" value="Qris" checked>
+                            <label for="pay1">Qris</label>
+                            <input type="radio" id="pay2" name="pembayaran" value="Dana">
+                            <label for="pay2">Dana</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top:14px">
+                    <label for="text">Pesan (akan dikirim ke WhatsApp)</label>
+                    <textarea id="text" name="text" placeholder="Isi pesan. Contoh:\nMau beli: [pilih paket]\nLokasi: [isi lokasi]\nMetode pembayaran: [Transfer/Cash]" required></textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn primary">Kirim ke WhatsApp</button>
+                </div>
+                <div style="font-size:12px;color:#000000;margin-top:10px">
+                    NOTE : inject adalah trik, jadilah pembeli bijak.
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        (function(){
+            const WA_BASE = 'https://wa.me/6283189187818?text=';
+            const form = document.getElementById('orderForm');
+            const pkg = document.getElementById('packageSelect');
+            const lokasi = document.getElementById('location');
+            const pay1 = document.getElementById('pay1');
+            const pay2 = document.getElementById('pay2');
+            const text = document.getElementById('text');
+
+            function getPayment(){
+                if(pay1.checked) return pay1.value;
+                if(pay2.checked) return pay2.value;
+                return '';
+            }
+
+            function getOperator(){
+                const sel = pkg.selectedOptions && pkg.selectedOptions[0];
+                if(!sel) return '-';
+                const parent = sel.parentElement;
+                if(parent && parent.tagName && parent.tagName.toLowerCase() === 'optgroup') return parent.label;
+                return '-';
+            }
+
+            function buildMessage(){
+                const prov = getOperator();
+                const p = pkg.value || '-';
+                const l = lokasi.value || '-';
+                const pay = getPayment() || '-';
+                return `Kartu: ${prov}\nMau beli: ${p}\nLokasi: ${l}\nMetode pembayaran: ${pay}`;
+            }
+
+            function updateText(){
+                text.value = buildMessage();
+            }
+
+            // Update textarea when inputs change
+            [pkg, lokasi, pay1, pay2].forEach(el=>{
+                el.addEventListener('change', updateText);
+                el.addEventListener('input', updateText);
+            });
+
+            // initialize
+            updateText();
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                if(!pkg.value){ alert('Pilih paket dulu'); pkg.focus(); return; }
+                if(!lokasi.value.trim()){ alert('Tolong isi lokasi'); lokasi.focus(); return; }
+                const msg = buildMessage();
+                const url = WA_BASE + encodeURIComponent(msg);
+                window.open(url, '_blank');
+            });
+        })();
+    </script>
+    
+</body>
+</html>
